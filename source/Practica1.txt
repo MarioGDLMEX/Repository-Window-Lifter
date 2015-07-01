@@ -1,0 +1,11 @@
+1. Dummy.c, agregar una nueva funcion para configurar callback en la inicialización de PIT.
+	void dummy_5000us(void);
+2.En la función dummy_500us agregar el control necesario para generar la llamada de las funciones definidas
+	(5,50,100,10ms)
+3.Las funciones Task_xxms, deben de ser 
+
+
+
+
+
+
