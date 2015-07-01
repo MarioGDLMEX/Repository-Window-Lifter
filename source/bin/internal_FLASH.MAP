@@ -52,16 +52,16 @@ Link map of __start
     3] dummy_endless_loop (func,global) found in dummy.o 
      4] function_table_def (object,global) found in dummy.o 
       5] Task_1ms (func,global) found in dummy.o 
-       6] Leds_ON_OFF (object,global) found in dummy.o 
-       6] option_M_A (object,global) found in dummy.o 
-       6] counter_M_A (object,global) found in dummy.o 
-       6] Option_Direction (object,global) found in dummy.o 
-       6] counter_Button_OK (object,global) found in dummy.o 
-       6] counter_Pinch (object,global) found in dummy.o 
+       6] rul_Leds_ON_OFF (object,global) found in dummy.o 
+       6] rub_option_M_A (object,global) found in dummy.o 
+       6] rul_counter_M_A (object,global) found in dummy.o 
+       6] rub_Option_Direction (object,global) found in dummy.o 
+       6] rub_counter_Button_OK (object,global) found in dummy.o 
+       6] rul_counter_Pinch (object,global) found in dummy.o 
        6] Set_Mode (func,global) found in dummy.o 
        6] machine (func,global) found in dummy.o 
         7] Show_Leds (func,global) found in dummy.o 
-         8] start (object,global) found in dummy.o 
+         8] rub_start (object,global) found in dummy.o 
         7] Set_Direction (func,global) found in dummy.o 
       5] Task_10ms (func,global) found in dummy.o 
     3] BackgroundSubsystemTasks (func,global) found in main.o 
@@ -78,47 +78,47 @@ Link map of __start
 
 
 
-Code folded in file: C:\Users\Mario\Desktop\Continental Automotive\WindowLifter Mario Rivera\source\src\Infrastructure\Startup\__ppc_eabi_init.o 
+Code folded in file: C:\Users\Mario\Desktop\Mario Rivera Window Lifter\Repository-Window-Lifter.git\trunk\source\src\Infrastructure\Startup\__ppc_eabi_init.o 
 
 
 
-Code folded in file: C:\Users\Mario\Desktop\Continental Automotive\WindowLifter Mario Rivera\source\src\Infrastructure\Startup\MPC55xx_init.o 
+Code folded in file: C:\Users\Mario\Desktop\Mario Rivera Window Lifter\Repository-Window-Lifter.git\trunk\source\src\Infrastructure\Startup\MPC55xx_init.o 
 
 
 
-Code folded in file: C:\Users\Mario\Desktop\Continental Automotive\WindowLifter Mario Rivera\source\src\Infrastructure\Startup\MPC5606B_HWInit.o 
+Code folded in file: C:\Users\Mario\Desktop\Mario Rivera Window Lifter\Repository-Window-Lifter.git\trunk\source\src\Infrastructure\Startup\MPC5606B_HWInit.o 
 
 
 
-Code folded in file: C:\Users\Mario\Desktop\Continental Automotive\WindowLifter Mario Rivera\source\src\Sources\Services\Exceptions\Exceptions.o 
+Code folded in file: C:\Users\Mario\Desktop\Mario Rivera Window Lifter\Repository-Window-Lifter.git\trunk\source\src\Sources\Services\Exceptions\Exceptions.o 
 
 
 
-Code folded in file: C:\Users\Mario\Desktop\Continental Automotive\WindowLifter Mario Rivera\source\src\Sources\Services\Exceptions\ivor_branch_table.o 
+Code folded in file: C:\Users\Mario\Desktop\Mario Rivera Window Lifter\Repository-Window-Lifter.git\trunk\source\src\Sources\Services\Exceptions\ivor_branch_table.o 
 
 
 
-Code folded in file: C:\Users\Mario\Desktop\Continental Automotive\WindowLifter Mario Rivera\source\src\Sources\Services\Interrupts\IntcInterrupts.o 
+Code folded in file: C:\Users\Mario\Desktop\Mario Rivera Window Lifter\Repository-Window-Lifter.git\trunk\source\src\Sources\Services\Interrupts\IntcInterrupts.o 
 
 
 
-Code folded in file: C:\Users\Mario\Desktop\Continental Automotive\WindowLifter Mario Rivera\source\src\Sources\Application\Main Application\main.o 
+Code folded in file: C:\Users\Mario\Desktop\Mario Rivera Window Lifter\Repository-Window-Lifter.git\trunk\source\src\Sources\Application\Main Application\main.o 
 
 
 
-Code folded in file: C:\Users\Mario\Desktop\Continental Automotive\WindowLifter Mario Rivera\source\src\Sources\Bios\PLL\pll.o 
+Code folded in file: C:\Users\Mario\Desktop\Mario Rivera Window Lifter\Repository-Window-Lifter.git\trunk\source\src\Sources\Bios\PLL\pll.o 
 
 
 
-Code folded in file: C:\Users\Mario\Desktop\Continental Automotive\WindowLifter Mario Rivera\source\src\Sources\Application\Dummy\dummy.o 
+Code folded in file: C:\Users\Mario\Desktop\Mario Rivera Window Lifter\Repository-Window-Lifter.git\trunk\source\src\Sources\Application\Dummy\dummy.o 
 
 
 
-Code folded in file: C:\Users\Mario\Desktop\Continental Automotive\WindowLifter Mario Rivera\source\src\Sources\Bios\PIT\PIT.o 
+Code folded in file: C:\Users\Mario\Desktop\Mario Rivera Window Lifter\Repository-Window-Lifter.git\trunk\source\src\Sources\Bios\PIT\PIT.o 
 
 
 
-Code folded in file: C:\Users\Mario\Desktop\Continental Automotive\WindowLifter Mario Rivera\source\src\Sources\Bios\GPIO\GPIO.o 
+Code folded in file: C:\Users\Mario\Desktop\Mario Rivera Window Lifter\Repository-Window-Lifter.git\trunk\source\src\Sources\Bios\GPIO\GPIO.o 
 
 
 
@@ -530,13 +530,13 @@ extabindex section layout
   00000008 000004 40001360 00001820  4 rpfu_PtrToFctn 	main.o 
   0000000c 000004 40001368 00001828  8 *fill*
   00000010 000014 40001368 00001828  1 .sbss 	dummy.o 
-  00000010 000004 40001368 00001828  4 counter_Pinch 	dummy.o 
-  00000014 000004 4000136c 0000182c  4 counter_M_A 	dummy.o 
-  00000018 000004 40001370 00001830  4 Leds_ON_OFF 	dummy.o 
-  0000001c 000001 40001374 00001834  1 start 	dummy.o 
-  0000001d 000001 40001375 00001835  1 Option_Direction 	dummy.o 
-  0000001e 000001 40001376 00001836  1 option_M_A 	dummy.o 
-  0000001f 000001 40001377 00001837  1 counter_Button_OK 	dummy.o 
+  00000010 000004 40001368 00001828  4 rul_counter_Pinch 	dummy.o 
+  00000014 000004 4000136c 0000182c  4 rul_counter_M_A 	dummy.o 
+  00000018 000004 40001370 00001830  4 rul_Leds_ON_OFF 	dummy.o 
+  0000001c 000001 40001374 00001834  1 rub_start 	dummy.o 
+  0000001d 000001 40001375 00001835  1 rub_Option_Direction 	dummy.o 
+  0000001e 000001 40001376 00001836  1 rub_option_M_A 	dummy.o 
+  0000001f 000001 40001377 00001837  1 rub_counter_Button_OK 	dummy.o 
   00000020 000004 40001378 00001838  4 rps_TaskPtr 	dummy.o 
 
 
@@ -581,12 +581,12 @@ Memory map:
                .sdata2 4000137c 00000000 00001818 00003018 00003018          0
                 .sbss2 4000137c 00000000 00001818 00003018 00003018          0
                   .bss 40001380 00000020 00001818 00003018 00003018          0
-      .PPC.EMB.apuinfo 000064e4 00000000 00007d00 000094fc 000094fc          0
+      .PPC.EMB.apuinfo 000065f0 00000000 00007e10 00009608 00009608          0
          .debug_abbrev          0000014d 00001818
-           .debug_info          00001d31 00001965
-           .debug_line          00002c02 00003696
-            .debug_loc          00000631 00006298
-       .debug_pubnames          000005cb 000068c9
+           .debug_info          00001d81 00001965
+           .debug_line          00002c84 000036e6
+            .debug_loc          00000631 0000636a
+       .debug_pubnames          000005e7 0000699b
 
 
 Linker generated symbols:
