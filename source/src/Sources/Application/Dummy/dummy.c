@@ -3,7 +3,7 @@
 /*============================================================================*/
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*
-* C Source:         %template.c%
+* C Source:         %dummy.c%
 * Instance:         RPL_1
 * %version:         2 %
 * %created_by:      uid02495 %
@@ -19,7 +19,7 @@
 /*============================================================================*/
 /*  REVISION |   DATE      |                               |      AUTHOR      */
 /*----------------------------------------------------------------------------*/
-/*  1.0      | DD/MM/YYYY  |                               | Mr. Template     */
+/*  1.0      | DD/MM/YYYY  |                               | Mario Rivera     */
 /* Integration under Continuus CM                                             */
 /*============================================================================*/
 
@@ -228,7 +228,7 @@ void machine( void )
 			break;
 			case STANDBY:
 			break;
-			case PINCH://check
+			case PINCH:
 				Show_Leds();
 				Set_Direction();
 				if( rul_counter_Pinch >= _5000Mili )
@@ -239,7 +239,6 @@ void machine( void )
 		}
 		rul_Leds_ON_OFF = reset_counter;
 	}
-
 }
 
 /* Inline functions */
