@@ -41,6 +41,16 @@
 /* ---------------------------------------------------- */
 /* Functions macros */
 
+void dummy_500us(void);
+void dummy_endless_loop(void);
+
+void Task_1ms( void );
+void Task_10ms( void );
+void Show_Leds( void );
+void machine( void );
+void Set_Direction( void );
+void Set_Mode( void );
+
 /*==================================================*/ 
 /* Definition of constants                          */
 /*==================================================*/ 
@@ -72,6 +82,7 @@ T_UBYTE rub_start;
 
 
 /* LONG and STRUCTURE RAM variables */
+
 T_ULONG rul_Leds_ON_OFF;
 T_ULONG rul_counter_M_A;
 T_ULONG rul_counter_Pinch;

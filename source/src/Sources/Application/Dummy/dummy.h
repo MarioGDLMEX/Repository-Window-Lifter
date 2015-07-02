@@ -80,15 +80,7 @@ typedef struct{
 /* ---------------------------------------- */
 
 /* Functions prototypes */
-void dummy_500us(void);
-void dummy_endless_loop(void);
 
-void Task_1ms( void );
-void Task_10ms( void );
-void Show_Leds( void );
-void machine( void );
-void Set_Direction( void );
-void Set_Mode( void );
 
 /* Functions macros */
 
