@@ -5,21 +5,22 @@
 /*============================================================================*
 * C Source:         %dummy.c%
 * Instance:         RPL_1
-* %version:         2 %
-* %created_by:      uid02495 %
-* %date_created:    Fri Jan  9 14:38:03 2004 %
+* %version:         1 %
+* %created_by:      Mario Alberto Rivera González %
+* %date_created:    Monday July  29 14:38:03 2015 %
 *=============================================================================*/
 /* DESCRIPTION : C source template file                                       */
 /*============================================================================*/
-/* FUNCTION COMMENT : This file describes the C source template according to  */
-/* the new software platform                                                  */
-/*                                                                            */
+/* FUNCTION COMMENT : Implements a module that controls windows movement.     */
+/* I have in this file a few function that help me implements Close, Open.    */
+/* A states machine that helpe to move trough Automatic, Manual and Anti-Pinch*/
+/* mode.                                                                      */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*  REVISION |   DATE      |                               |      AUTHOR      */
 /*----------------------------------------------------------------------------*/
-/*  1.0      | DD/MM/YYYY  |                               | Mario Rivera     */
+/*  1.0      | 03/07/2015  |                               | Mario Rivera     */
 /* Integration under Continuus CM                                             */
 /*============================================================================*/
 
@@ -79,13 +80,11 @@ T_UBYTE rub_Option_Direction;
 T_UBYTE rub_start;
 
 /* WORD RAM variables */
-
+T_UWORD ruw_Leds_ON_OFF;
+T_UWORD ruw_counter_M_A;
+T_UWORD ruw_counter_Pinch;
 
 /* LONG and STRUCTURE RAM variables */
-
-T_ULONG rul_Leds_ON_OFF;
-T_ULONG rul_counter_M_A;
-T_ULONG rul_counter_Pinch;
 
 enum re_states
 {
@@ -116,29 +115,28 @@ enum re_states
 /* ---------------- */
 /**************************************************************
  *  Name                 : Task_1ms	
- *  Description          :
+ *  Description          : This function controls all flows program.
  *  Parameters           :  void
  *  Return               :	void
- *  Critical/explanation :    [yes / No]
+ *  Critical/explanation :    YES
  **************************************************************/
  
  void Task_1ms(void)
 {
-	rul_Leds_ON_OFF++;
-	if( rub_option_M_A == PINCH )
-	{}
+	ruw_Leds_ON_OFF++;
+	if( rub_option_M_A == PINCH ){}
 	else if( rub_counter_Button_OK )
 	{
 		if( PUSH_PRESSED(OPEN_PUSH) )
 		{
-			rul_counter_M_A++;
+			ruw_counter_M_A++;
 			rub_Option_Direction = OPEN;
 			LED_ON(LED_OPEN);
 			LED_OFF(LED_CLOSED);
 		}
 		else if( PUSH_PRESSED(CLOSED_PUSH) )
 		{
-			rul_counter_M_A++;
+			ruw_counter_M_A++;
 			rub_Option_Direction = CLOSED;
 			LED_ON(LED_CLOSED);
 			LED_OFF(LED_OPEN);
@@ -147,8 +145,8 @@ enum re_states
 		{
 			if( rub_Option_Direction == CLOSED )
 			{
-				rul_counter_M_A = reset_counter;
-				rul_counter_Pinch = reset_counter;
+				ruw_counter_M_A = reset_counter;
+				ruw_counter_Pinch = reset_counter;
 				rub_option_M_A = PINCH;
 				rub_Option_Direction = OPEN;
 				LED_OFF(LED_CLOSED);
@@ -156,10 +154,14 @@ enum re_states
 			}
 		}
 		else
-			rul_counter_M_A = reset_counter;
+			ruw_counter_M_A = reset_counter;
 	}
 	Set_Mode();
-	machine();	
+	if( ruw_Leds_ON_OFF >= _400Mili )
+	{
+		machine();
+		ruw_Leds_ON_OFF = reset_counter;
+	}	
 }
 
 
@@ -167,10 +169,11 @@ enum re_states
 /* ---------------- */
 /**************************************************************
  *  Name                 : Task_10ms	
- *  Description          :
+ *  Description          : This function is call when I need to know
+ 						   if was pressed a correct button.
  *  Parameters           :  void
  *  Return               :	void
- *  Critical/explanation :    [yes / No]
+ *  Critical/explanation :  YES
  **************************************************************/
 
 void Task_10ms(void)
@@ -187,10 +190,10 @@ void Task_10ms(void)
 /* ---------------- */
 /**************************************************************
  *  Name                 : Show_Leds	
- *  Description          :
+ *  Description          : This function turn on or off a specific led.
  *  Parameters           :  void
  *  Return               :	void
- *  Critical/explanation :    [yes / No]
+ *  Critical/explanation : YES
  **************************************************************/
 void Show_Leds(void)
 {
@@ -204,40 +207,38 @@ void Show_Leds(void)
 /* ---------------- */
 /**************************************************************
  *  Name                 : machine	
- *  Description          :
+ *  Description          : This function controls the mode that 
+ 						   the windows will move, Automatic, Manual
+ 						   Anti-Pinch or do not do anything(StandBy).
  *  Parameters           :  void
  *  Return               :	void
- *  Critical/explanation :    [yes / No]
+ *  Critical/explanation :  YES
  **************************************************************/
 void machine( void )
 {
-	if( rul_Leds_ON_OFF >= _400Mili )
+	switch( rub_option_M_A )
 	{
-		switch( rub_option_M_A )
-		{
-			case MANUAL:
-				Show_Leds();
-				if( rub_counter_Button_OK )
-					Set_Direction();
-				else
-					rub_option_M_A = STANDBY;
-			break;
-			case AUTOMATIC:
-				Show_Leds();
+		case MANUAL:
+			Show_Leds();
+			if( rub_counter_Button_OK )
 				Set_Direction();
-			break;
-			case STANDBY:
-			break;
-			case PINCH:
-				Show_Leds();
-				Set_Direction();
-				if( rul_counter_Pinch >= _5000Mili )
-					rub_option_M_A = STANDBY;	
-			break;
-			default:
-			break;
-		}
-		rul_Leds_ON_OFF = reset_counter;
+			else
+				rub_option_M_A = STANDBY;
+		break;
+		case AUTOMATIC:
+			Show_Leds();
+			Set_Direction();
+		break;
+		case STANDBY:
+		break;
+		case PINCH:
+			Show_Leds();
+			Set_Direction();
+			if( ruw_counter_Pinch >= _5000Mili )
+				rub_option_M_A = STANDBY;	
+		break;
+		default:
+		break;
 	}
 }
 
@@ -245,7 +246,8 @@ void machine( void )
 /* ---------------- */
 /**************************************************************
  *  Name                 : Set_Direction	
- *  Description          :
+ *  Description          : Indicate wich led has to off or on 
+ 						   and sets direction.
  *  Parameters           :  void
  *  Return               :	void
  *  Critical/explanation :    [yes / No]
@@ -281,22 +283,22 @@ void Set_Direction( void )
 /* ---------------- */
 /**************************************************************
  *  Name                 : Set_Mode	
- *  Description          :
+ *  Description          : In this function I set a mode (Automatic, Anti-Pinch, Automatic or Manual
  *  Parameters           :  void
  *  Return               :	void
- *  Critical/explanation :    [yes / No]
+ *  Critical/explanation : YES
  **************************************************************/
 void Set_Mode( void )
 {
 	if( rub_option_M_A == AUTOMATIC){}
 	if( rub_option_M_A == PINCH ){
-		rul_counter_Pinch++;
+		ruw_counter_Pinch++;
 	}
 	else
 	{
-		if( rul_counter_M_A >= _10Mili && rul_counter_M_A < _500Mili )
+		if( ruw_counter_M_A >= _10Mili && ruw_counter_M_A < _500Mili )
 			rub_option_M_A = AUTOMATIC;
-		else if( rul_counter_M_A >= _500Mili )
+		else if( ruw_counter_M_A >= _500Mili )
 		{
 			rub_option_M_A = MANUAL;	
 			LED_OFF(LED_CLOSED);
@@ -309,10 +311,10 @@ void Set_Mode( void )
 /* ---------------- */
 /**************************************************************
  *  Name                 : dummy_500us	
- *  Description          :
+ *  Description          : It is call when a inturrptions occurs
  *  Parameters           :  void
  *  Return               :	void
- *  Critical/explanation :    [yes / No]
+ *  Critical/explanation :  YES
  **************************************************************/
 void dummy_500us(void)
 {
@@ -332,10 +334,10 @@ void dummy_500us(void)
 /* ---------------- */
 /**************************************************************
  *  Name                 : dummy_endless_loop	
- *  Description          :
+ *  Description          : This functions is called by the main.c
  *  Parameters           :  void
  *  Return               :	void
- *  Critical/explanation :    [yes / No]
+ *  Critical/explanation :  YES
  **************************************************************/
 void dummy_endless_loop(void)
 {
@@ -343,8 +345,8 @@ void dummy_endless_loop(void)
 	rub_start = LED1;
 	rub_option_M_A = STANDBY;
 	rub_counter_Button_OK = reset_counter;
-	rul_Leds_ON_OFF = reset_counter;
-	rul_counter_M_A = reset_counter;
+	ruw_Leds_ON_OFF = reset_counter;
+	ruw_counter_M_A = reset_counter;
 	LED_OFF(LED_CLOSED);
 	LED_OFF(LED_OPEN);
 	for(;;)

@@ -80,6 +80,8 @@ typedef struct{
 /* ---------------------------------------- */
 
 /* Functions prototypes */
+extern void dummy_endless_loop(void);
+extern void dummy_500us(void);
 
 
 /* Functions macros */
