@@ -37,7 +37,7 @@
 /* Types definition */
 /* typedef */
 #define _400Mili 			400
-#define _5000Mili 			50000
+#define _5000Mili 			5000
 #define _500Mili  			500
 #define _10Mili 			10
 #define reset_counter		0
