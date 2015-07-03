@@ -52,12 +52,12 @@ Link map of __start
     3] dummy_endless_loop (func,global) found in dummy.o 
      4] function_table_def (object,global) found in dummy.o 
       5] Task_1ms (func,global) found in dummy.o 
-       6] rul_Leds_ON_OFF (object,global) found in dummy.o 
+       6] ruw_Leds_ON_OFF (object,global) found in dummy.o 
        6] rub_option_M_A (object,global) found in dummy.o 
-       6] rul_counter_M_A (object,global) found in dummy.o 
+       6] ruw_counter_M_A (object,global) found in dummy.o 
        6] rub_Option_Direction (object,global) found in dummy.o 
        6] rub_counter_Button_OK (object,global) found in dummy.o 
-       6] rul_counter_Pinch (object,global) found in dummy.o 
+       6] ruw_counter_Pinch (object,global) found in dummy.o 
        6] Set_Mode (func,global) found in dummy.o 
        6] machine (func,global) found in dummy.o 
         7] Show_Leds (func,global) found in dummy.o 
@@ -314,10 +314,10 @@ Code folded in file: Linker Generated Symbol File
   UNUSED   00000c ........ ........    initPeriClkGen pll.o 
   00000298 000000 00002298 000009c8  1 .text.23 	pll.o 
   00000298 0003ce 00002298 000009c8  1 .text 	dummy.o 
-  00000298 000108 00002298 000009c8  2 Task_1ms 	dummy.o 
-  000003a0 000034 000023a0 00000ad0  2 Task_10ms 	dummy.o 
-  000003d4 000048 000023d4 00000b04  2 Show_Leds 	dummy.o 
-  0000041c 000074 0000241c 00000b4c  2 machine 	dummy.o 
+  00000298 000118 00002298 000009c8  2 Task_1ms 	dummy.o 
+  000003b0 000034 000023b0 00000ae0  2 Task_10ms 	dummy.o 
+  000003e4 000048 000023e4 00000b14  2 Show_Leds 	dummy.o 
+  0000042c 000064 0000242c 00000b5c  2 machine 	dummy.o 
   00000490 00009c 00002490 00000bc0  2 Set_Direction 	dummy.o 
   0000052c 000074 0000252c 00000c5c  2 Set_Mode 	dummy.o 
   000005a0 000074 000025a0 00000cd0  2 dummy_500us 	dummy.o 
@@ -529,15 +529,15 @@ extabindex section layout
   00000004 000001 4000135c 0000181c  1 rub_Var2 	main.o 
   00000008 000004 40001360 00001820  4 rpfu_PtrToFctn 	main.o 
   0000000c 000004 40001368 00001828  8 *fill*
-  00000010 000014 40001368 00001828  1 .sbss 	dummy.o 
-  00000010 000004 40001368 00001828  4 rul_counter_Pinch 	dummy.o 
-  00000014 000004 4000136c 0000182c  4 rul_counter_M_A 	dummy.o 
-  00000018 000004 40001370 00001830  4 rul_Leds_ON_OFF 	dummy.o 
-  0000001c 000001 40001374 00001834  1 rub_start 	dummy.o 
-  0000001d 000001 40001375 00001835  1 rub_Option_Direction 	dummy.o 
-  0000001e 000001 40001376 00001836  1 rub_option_M_A 	dummy.o 
-  0000001f 000001 40001377 00001837  1 rub_counter_Button_OK 	dummy.o 
-  00000020 000004 40001378 00001838  4 rps_TaskPtr 	dummy.o 
+  00000010 000010 40001368 00001828  1 .sbss 	dummy.o 
+  00000010 000002 40001368 00001828  2 ruw_counter_Pinch 	dummy.o 
+  00000012 000002 4000136a 0000182a  2 ruw_counter_M_A 	dummy.o 
+  00000014 000002 4000136c 0000182c  2 ruw_Leds_ON_OFF 	dummy.o 
+  00000016 000001 4000136e 0000182e  1 rub_start 	dummy.o 
+  00000017 000001 4000136f 0000182f  1 rub_Option_Direction 	dummy.o 
+  00000018 000001 40001370 00001830  1 rub_option_M_A 	dummy.o 
+  00000019 000001 40001371 00001831  1 rub_counter_Button_OK 	dummy.o 
+  0000001c 000004 40001374 00001834  4 rps_TaskPtr 	dummy.o 
 
 
 .sdata2 section layout
@@ -556,8 +556,8 @@ extabindex section layout
   Starting        Virtual  File
   address  Size   address  offset
   ---------------------------------
-  00000000 000020 40001380 00001818  1 .bss 	PIT.o 
-  00000000 000020 40001380 00001818  8 PIT_Callback 	PIT.o 
+  00000000 000020 40001378 00001818  1 .bss 	PIT.o 
+  00000000 000020 40001378 00001818  8 PIT_Callback 	PIT.o 
 
 
 Memory map:
@@ -577,16 +577,16 @@ Memory map:
   .__uninitialized_intc_handlertable 40000000 00001340 00001800 00003000 00003000          0
                  .data 40001340 00000010 00001800 00003000 00003000        193
                 .sdata 40001350 00000004 00001810 00003010 00003010        194
-                 .sbss 40001358 00000024 00001818 00003018 00003018          0
-               .sdata2 4000137c 00000000 00001818 00003018 00003018          0
-                .sbss2 4000137c 00000000 00001818 00003018 00003018          0
-                  .bss 40001380 00000020 00001818 00003018 00003018          0
-      .PPC.EMB.apuinfo 000065f0 00000000 00007e10 00009608 00009608          0
+                 .sbss 40001358 00000020 00001818 00003018 00003018          0
+               .sdata2 40001378 00000000 00001818 00003018 00003018          0
+                .sbss2 40001378 00000000 00001818 00003018 00003018          0
+                  .bss 40001378 00000020 00001818 00003018 00003018          0
+      .PPC.EMB.apuinfo 000065e8 00000000 00007e00 00009600 00009600          0
          .debug_abbrev          0000014d 00001818
-           .debug_info          00001d81 00001965
-           .debug_line          00002c84 000036e6
-            .debug_loc          00000631 0000636a
-       .debug_pubnames          000005e7 0000699b
+           .debug_info          00001d7d 00001965
+           .debug_line          00002c81 000036e2
+            .debug_loc          00000631 00006363
+       .debug_pubnames          000005e7 00006994
 
 
 Linker generated symbols:
@@ -637,14 +637,14 @@ _e___uninitialized_intc_handlertable 40001340
              _f_sdata_rom 00003010
                  _e_sdata 40001354
                   _f_sbss 40001358
-                  _e_sbss 4000137c
-                _f_sdata2 4000137c
+                  _e_sbss 40001378
+                _f_sdata2 40001378
             _f_sdata2_rom 00003018
-                _e_sdata2 4000137c
-                 _f_sbss2 4000137c
-                 _e_sbss2 4000137c
-                   _f_bss 40001380
-                   _e_bss 400013a0
+                _e_sdata2 40001378
+                 _f_sbss2 40001378
+                 _e_sbss2 40001378
+                   _f_bss 40001378
+                   _e_bss 40001398
               _stack_addr 40014000
                _stack_end 40013000
                _heap_addr 40012000
@@ -652,6 +652,6 @@ _e___uninitialized_intc_handlertable 40001340
              _nbfunctions 00000030
            SIZEOF_HEADERS 000002e0
                _SDA_BASE_ 40009350
-              _SDA2_BASE_ 4000937c
+              _SDA2_BASE_ 40009378
            _ABS_SDA_BASE_ 40009350
-          _ABS_SDA2_BASE_ 4000937c
+          _ABS_SDA2_BASE_ 40009378
