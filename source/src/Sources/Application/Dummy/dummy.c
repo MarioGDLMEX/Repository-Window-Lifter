@@ -1,3 +1,4 @@
+//HEctor jeronimo
 /*============================================================================*/
 /*                        SV C CE SOFTWARE GROUP                              */
 /*============================================================================*/
@@ -6,7 +7,7 @@
 * C Source:         %dummy.c%
 * Instance:         RPL_1
 * %version:         1 %
-* %created_by:      Mario Alberto Rivera Gonz·lez %
+* %created_by:      Mario Alberto Rivera Gonz√°lez %
 * %date_created:    Monday July  29 14:38:03 2015 %
 *=============================================================================*/
 /* DESCRIPTION : C source template file                                       */
